@@ -7,8 +7,30 @@ function AddTask() {
 
   return (
     <div>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
-      <button onClick={() => addTask(text)}>Add</button>
+      <input
+        className="border-2 rounded-2xl"
+        type="text"
+        name="task"
+        value={text}
+        maxLength={50}
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => {
+          if (text != "" && e.key == "Enter") {
+            addTask(text);
+            setText('')
+          }
+        }}
+      />
+      <button
+        onClick={() => {
+          if (text != "") {
+            addTask(text);
+            setText('')
+          }
+        }}
+      >
+        Add
+      </button>
     </div>
   );
 }

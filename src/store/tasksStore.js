@@ -8,11 +8,12 @@ const tasksStore = create(
       filter: "All",
 
       addTask: (task) => set((state) => ({ tasks: [...state.tasks, task] })),
-      removeTask: (id) =>
+      removeTask: (index) =>
         set((state) => ({
-          tasks: [state.tasks.filter((task) => task.id !== id)],
+          tasks: state.tasks.filter((task, i) => i !== index),
         })),
       clearAll: () => set(() => ({ tasks: [] })),
+      setFilter: (filter) => set({ filter }),
     }),
     { name: "tasks-storage" },
   ),

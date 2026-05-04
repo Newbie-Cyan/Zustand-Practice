@@ -4,7 +4,7 @@ import DisplayTask from "./components/DisplayTask";
 
 function App() {
   return (
-    <main>
+    <main className="h-screen w-screen flex items-center justify-center">
       <AddTask />
       <Actions />
       <DisplayTask />
